@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>NYU Venture Directory (Basic)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>NYU Venture Directory</h1>
+      <p class="subtitle">Basic public-facing list with search & filters (no frameworks).</p>
+    </header>
+
+    <section class="controls">
+      <div class="control">
+        <label for="search">Search</label>
+        <input id="search" type="text" placeholder="Name, founder, tag…" />
+      </div>
+
+      <div class="control">
+        <label for="year">Year</label>
+        <select id="year">
+          <option value="all">All years</option>
+        </select>
+      </div>
+
+      <div class="control">
+        <label for="tag">Tag</label>
+        <select id="tag">
+          <option value="all">All tags</option>
+        </select>
+      </div>
+
+      <div class="control checkbox-row">
+        <input id="onlyNews" type="checkbox" />
+        <label for="onlyNews">Has recent news</label>
+      </div>
+
+      <div class="control">
+        <label for="sort">Sort</label>
+        <select id="sort">
+          <option value="year">Newest</option>
+          <option value="name">A → Z</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Venture</th>
+            <th>Founders</th>
+            <th>Year</th>
+            <th>Tags</th>
+            <th>News</th>
+          </tr>
+        </thead>
+        <tbody id="rows">
+          <!-- populated by app.js -->
+        </tbody>
+      </table>
+
+      <div id="empty" class="empty hidden">
+        No results. Try clearing filters.
+      </div>
+    </section>
+
+    <footer class="footer">
+      Tip: Keep two tables (Startups, People) and a join table (Founders). Use an
+      <code>id</code> like <code>name-year</code> to de-dupe and link news.
+    </footer>
+  </main>
+
+  <script src="./app.js" type="module"></script>
+</body>
+</html>
